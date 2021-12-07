@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #ifdef _WIN32
 #include <Windows.h>
 #else
@@ -6,6 +7,8 @@
 #endif
 
 int main() {
+    int *p;
+    p = (int*)malloc(2 * sizeof(int) + 3 * sizeof(long));
     long result = 0;
     long last_one = 1;
     printf("%ld\n",last_one);
@@ -20,5 +23,6 @@ int main() {
         printf("%ld\n",result);
         sleep(1);
     }
+    free(p);
     return 0;
 }
